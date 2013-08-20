@@ -1,0 +1,333 @@
+/*
+Copyright (c) <2013>, <Patrick Jebramcik>
+Copyright (c) <2013>, <Dietrich Derksen>
+Copyright (c) <2013>, <Florian Kraus>
+Copyright (c) <2013>, <Jessica Tölke>
+Copyright (c) <2013>, <Stefan Beller>
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+    * Redistributions of source code must retain the above copyright notice,
+      this list of conditions and the following disclaimer.
+
+    * Redistributions in binary form must reproduce the above copyright
+      notice, this list of conditions and the following disclaimer
+      in the documentation and/or other materials provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
+body {
+	background-color:#000000;
+	color:#ffff55;
+	font-family: sans-serif;
+	background: url("../gfx/background.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	font-family: 'Stanislav';
+	font-weight: normal;
+	font-style: normal;
+	overflow: hidden;
+}
+
+#header {
+	font-size: 72px;
+	font-family: 'Medieval Sharp';
+	text-align: center;
+	color: #111;
+	text-shadow: 2px 2px 15px #D20, 1px 1px 2px #F00, -1px -1px #990;
+	margin-bottom: 20px;
+	text-decoration: underline;
+}
+
+#column_left {
+	float: left;
+	width: 23%;
+	padding: 3px;
+	cursor: default;
+}
+
+#column_center {
+	float: left;
+	width: 50%;
+	padding: 3px;
+}
+
+#column_right {
+	cursor: default;
+	width: 23%;
+	padding: 3px;
+	float: right;
+}
+
+#healthbar_wrapper {
+	border: 1px inset #400;
+	background-color: #400;
+	margin-bottom: 10px;
+	font-size: 22px;
+	width: 99%;
+	height: 1.3em;
+}
+
+#healthbar {
+	position:relative;
+	background-color: red;
+	width: 25%;
+	height: 1.3em;
+	left: 50%;
+	margin-left: -12.5%;
+}
+
+#healthbarlabel {
+    position: relative;
+    width: 100%;
+    margin: auto;
+	margin-top:-1.2em;
+    text-align: center;
+    vertical-align:middle;
+}
+
+#statstable {
+	width: 100%;
+	background-color: rgba(0,80,0,0.75);
+	border: 1px solid #070;
+	margin-bottom: 10px;
+}
+
+#statstable b {
+	color: #4f3;
+}
+
+#equiptable {
+	width: 100%;
+	background-color: rgba(0,0,80,0.75);
+	border: 1px solid #006;
+	margin-bottom: 30px;
+	empty-cells: show;
+}
+
+#equiptable td {
+	border: 1px solid #006;
+	padding: 7px;
+}
+
+#equiptable b {
+	color: #46f;
+}
+
+#infos {
+	border: 1px inset black;
+	height: 50%;
+	min-height:200px;
+	overflow: auto;
+	padding: 5px;
+	background-color: rgba(17,17,17,0.75);
+	margin-top: 5px;
+}
+
+#roomtext {
+	height: 50%;
+	min-height: 300px;
+	background-color:rgba(17,17,17,0.75);
+	text-align:left;
+	margin-bottom: 30px;
+	cursor: default;
+	text-align: right;
+	padding: 5px;
+}
+
+#actions {
+	text-align:center;
+}
+
+#map {
+	margin-bottom: 5px;
+}
+
+.map {
+	width: 400px;
+	height: 400px;
+	margin: auto;
+	text-align: center;
+	empty-cells: show;
+}
+
+.map td {
+    border: 1px solid black;
+}
+
+.map_tile.wall {
+	background-color:#111;
+}
+
+.map_tile.map_unknown {
+	background-color:#333;
+}
+
+.map_tile.empty {
+	background-color:#777;
+}
+
+.map_tile.unvisited {
+	background-color:#0f0;
+}
+
+.map_tile.visited {
+	background-color:#f00;
+}
+
+.map_tile.enemy {
+	background-color:#00f;
+}
+
+.map_tile.deadenemy {
+	background-color:#228;
+}
+
+.map_tile.item {
+	background-color:#ff0;
+}
+
+.map_tile.hint {
+	background-color:#0ff;
+}
+
+.map_tile.stairs {
+	background-color:#f0f;
+}
+
+.map_tile.exists {
+	background-color: #fff;
+}
+
+#overlay_background {
+	position:absolute;
+	left:0;
+	top:0;
+	width:100%;
+	height:100%;
+	background-color:#000000;
+	opacity:0.6;
+/*
+	visibility:hidden;
+*/
+}
+
+#overlay_window {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	margin-left: -30%;
+	margin-top: -10%;
+	width:60%;
+	min-height:4%;
+	background-color:#222;
+	display:none;
+	border-width:1px;
+	border-color:#444;
+	border-style:solid;
+}
+
+#overlay_text {
+	background-color:#222;
+	padding:2em;
+}
+
+#overlay_buttons {
+	text-align:center;
+}
+
+.overlay_button{
+}
+
+.actionbutton {
+    background: url('../gfx/button.png') no-repeat top left;
+	background-size: 100% auto;
+	width:625px;
+	height:40px;
+	text-align:center;
+	display:inline-block;
+	padding-top:7px;
+	vertical-align:middle;
+	cursor:pointer;
+	color:#fffeff;
+}
+
+.overlay_button {
+    background: url('../gfx/button.png') no-repeat top left;
+	background-size: 100% auto;
+	width:625px;
+	height:40px;
+	text-align:center;
+	padding-top:7px;
+	vertical-align:middle;
+	cursor:pointer;
+	color:#fffeff;
+	display:none;
+}
+.overlay_input_wrapper {
+	width:625px;
+	height:40px;
+	text-align:center;
+	display:none;
+	vertical-align:middle;
+	padding-top:7px;
+	cursor:pointer;
+	color:#fffeff;
+}
+
+.overlay_input {
+	width:584px;
+	font-size: 1em;
+	color:#ff5;
+	background-color:#444;
+}
+
+.actionbutton:hover {
+    background: url('../gfx/button_hover.png') no-repeat top left;
+	background-size: 100% auto;
+	color:#fffeff;
+}
+
+#tooltip {
+	position: absolute;
+	display: none;
+	background-color: #222;
+	padding: 5px;
+	border: 1px solid black;
+	color: #999;
+}
+
+.level_room {
+	width: 400px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 10px;
+	font-size: 22px;
+}
+
+#dungeon {
+	float: left;
+}
+
+#room {
+	text-align: right;
+}
+.monster {
+	color: #f81;
+}
+
+.item {
+	color: #6d0;
+}
+
+.hint {
+	color: #7ad;
+}
+
+.stairs {
+	color: #f4d;
+}

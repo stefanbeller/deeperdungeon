@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="./src/style.css" />
+    <link rel="stylesheet" media="screen" href="http://openfontlibrary.org/face/stanislav" rel="stylesheet" type="text/css"/>
+	<link rel="stylesheet" media="screen" href="http://openfontlibrary.org/face/retep-relleum" rel="stylesheet" type="text/css"/>
+	<link rel="stylesheet" media="screen" href="http://openfontlibrary.org/face/medievalsharp" rel="stylesheet" type="text/css"/>
+	<meta charset="UTF-8">
+	<script type="text/javascript" src="./src/main.js"></script>
+	<script type="text/javascript" src="./src/gui.js"></script>
+	<script type="text/javascript" src="./src/dungeon.js"></script>
+	<script type="text/javascript" src="./src/hint.js"></script>
+	<script type="text/javascript" src="./src/item.js"></script>
+	<script type="text/javascript" src="./src/enemy.js"></script>
+	<script type="text/javascript" src="./src/stairs.js"></script>
+	<script type="text/javascript" src="./src/player.js"></script>
+	<script type="text/javascript" src="./src/texts.js"></script>
+	<script type="text/javascript" src="./src/savegame.js"></script>
+
+</head>
+<body onLoad="javascript:init();">
+
+<div id="header">
+	&nbsp;
+</div>
+
+<!--
+left column
+-->
+<div id="column_left">
+	<div id="roomtext">...</div>
+</div>
+<!--
+center column
+-->
+<div id="column_center">
+	<div id="map"></div>
+	<div id="infobox_left">
+	<div class="level_room"><div id="dungeon">Ebene: 1</div><div id="room">Raum: 1</div></div>
+	<div id="actions"> </div>
+	</div>
+</div>
+<!--
+right column
+-->
+<div id="column_right">
+	<div id="stats">
+		<div id="healthbar_wrapper">
+			<div id="healthbar"></div>
+			<div id="healthbarlabel"></div>
+		</div>
+		<table id="statstable"><tr>
+			<td><b>Angriff:</b></td><td id="attack_value">12</td>
+		</tr><tr>
+			<td><b>Verteidigung:</b></td><td id="armor_value">8</td>
+		</tr></table>
+		<table id="equiptable" cellpadding="5" cellspacing="0"><tr>
+			<td><b>Waffe:</b></td><td id="weapon">-</td>
+		</tr><tr>
+			<td><b>Rüstung:</b></td><td id="armor">-</td>
+		</tr><tr>
+			<td><b>Talisman:</b></td><td id="jewel">-</td>
+		</tr></table>
+	</div>
+	Log: <br />
+	<div id="infos"></div>
+</div>
+
+
+<!--
+popup dialog
+-->
+<div id="overlay_background"></div>
+<div id="overlay_window">
+	<div id="overlay_text"></div>
+	<div id="overlay_buttons">
+		<div id=overlay_input_wrapper class=overlay_input_wrapper>
+		<input type=text name=overlay_input id=overlay_input class=overlay_input onChange='javascript:gui_onInputUpdate(this.value);'></input>
+		</div>
+		<div id=overlay_button_yes class=overlay_button onClick='javascript:gui_hideOverlay();gui_button_yes();'>Ja</div>
+		<div id=overlay_button_no class=overlay_button onClick='javascript:gui_hideOverlay();gui_button_no();'>Nein</div>
+		<div id=overlay_button_import class=overlay_button onClick='javascript:gui_hideOverlay();gui_button_import();'>Spiel importieren</div>
+		<div id=overlay_button_load class=overlay_button onClick='javascript:gui_hideOverlay();gui_button_load();'>Spiel laden</div>
+		<div id=overlay_button_restart class=overlay_button onClick='javascript:gui_hideOverlay();init_new_game();'>Starte von vorn!</div>
+	</div>
+</div>
+
+<div id="tooltip"></div>
+
+</body>
+</html>

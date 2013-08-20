@@ -1,0 +1,29 @@
+Ein Dungeon Crawler Spiel mit deutschen Untertiteln
+===================================================
+
+The source code (*.js) was created by
+
+Patrick Jebramcik
+Dietrich Derksen
+Florian Kraus
+Jessica Tölke
+Stefan Beller
+
+As the source code was developed only within 4 days,
+(it was a gift for a collegue, who really is into RPGs)
+we decided not to publish the messy git history. So the
+cleaned history starts with a single huge commit.
+
+The files in the src/ directory (*.js and *.css files)
+are published under 2 clause BSD license.
+(Do whatever you want with it, as long as you keep the attribution to
+the original authors.)
+
+
+External resources:
+===================================================
+Graphics
+File                        Licence       Source
+gfx/Buttons.png             CC0           http://opengameart.org/content/flare-buttons
+gfx/Buttons_hover.png       CC0           http://opengameart.org/content/flare-buttons
+gfx/background.jpg          Public Domain http://www.publicdomainpictures.net/view-image.php?image=584&picture=kent-hohle&large=1
